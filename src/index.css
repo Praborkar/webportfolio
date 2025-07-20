@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 214 79% 27%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 217 78% 69%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Multi-blue theme colors */
+    --portfolio-navy: 214 79% 27%;     /* Navy Blue #1E3A8A */
+    --portfolio-indigo: 217 91% 60%;   /* Indigo #3B82F6 */
+    --portfolio-sky: 217 78% 69%;      /* Sky Blue #60A5FA */
+    --portfolio-light: 214 100% 87%;   /* Light Blue #BFDBFE */
+    --footer-light: 199 89% 48%;       /* Light blue for footer #E0F2FE */
+    --footer-text: 220 26% 14%;        /* Dark text #111827 */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--portfolio-indigo)), hsl(var(--portfolio-sky)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--portfolio-navy)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--portfolio-sky)), hsl(var(--portfolio-light)));
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-boldonse;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth font-boldonse;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    @apply backdrop-blur-lg bg-card/80 border border-primary/20 rounded-xl;
+    box-shadow: 0 4px 30px hsl(var(--primary) / 0.1);
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:shadow-xl;
+    box-shadow: 0 4px 10px hsl(var(--primary) / 0);
+  }
+  
+  .card-hover:hover {
+    box-shadow: 0 8px 25px hsl(var(--primary) / 0.25);
+  }
+  
+  .btn-glow {
+    @apply relative overflow-hidden transition-all duration-300 ease-in-out;
+  }
+  
+  .btn-glow::after {
+    @apply content-[''] absolute top-0 left-[-100%] z-0 w-[200%] h-full transition-all duration-500;
+    background: linear-gradient(90deg, transparent, hsl(var(--accent) / 0.3), transparent);
+  }
+  
+  .btn-glow:hover::after {
+    @apply left-[100%];
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 15px hsl(var(--primary) / 0.6);
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-24;
+  }
+  
+  .link-hover {
+    @apply relative transition-all duration-300 ease-in-out;
+  }
+  
+  .link-hover::after {
+    @apply content-[''] absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 ease-in-out;
+    background: hsl(var(--primary));
+  }
+  
+  .link-hover:hover::after {
+    @apply w-full;
+  }
+}
+
+.calendar-container .react-calendar {
+  @apply glassmorphism border-green-500/10 p-4;
+}
+
+.calendar-container .react-calendar__tile--active {
+  @apply bg-green-500 text-white;
+}
+
+.calendar-container .react-calendar__tile--now {
+  @apply bg-green-500/10 text-green-500;
+}
+
+.calendar-container .react-calendar__navigation button:enabled:hover,
+.calendar-container .react-calendar__navigation button:enabled:focus,
+.calendar-container .react-calendar__tile:enabled:hover,
+.calendar-container .react-calendar__tile:enabled:focus {
+  @apply bg-green-500/10 text-white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-green-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-green-500;
+}
