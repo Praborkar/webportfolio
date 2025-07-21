@@ -109,7 +109,7 @@ const HeroPortfolio = () => {
           className="relative z-10 w-80 h-80 rounded-lg overflow-hidden shadow-2xl border-4 border-black transition-all duration-300 ease-in-out"
         >
           <img 
-            src="public\profile.jpg" 
+            src="/profile.jpg" 
             alt="Prabor Kar profile"
             className="w-full h-full object-cover"
           />
