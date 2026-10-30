@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webportfolio-nine-self.vercel.app/sitemap.xml

@@ -24,10 +24,15 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Boldonse', 'sans-serif'],
-				boldonse: ['Boldonse', 'sans-serif'],
+				sans: ['Inter', 'sans-serif'],
+				display: ['"Jersey 10"', 'Impact', 'sans-serif'],
+				hand: ['Gaegu', 'cursive'],
+				mono: ['"Space Mono"', 'ui-monospace', 'monospace'],
+				boldonse: ['Inter', 'sans-serif'],
 			},
 			colors: {
+				ink: '#1a1a1a',
+				paper: '#f4f2ec',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

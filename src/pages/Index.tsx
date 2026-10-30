@@ -1,29 +1,24 @@
-import React, { useEffect } from "react";
-import SpaceBackground from "@/components/SpaceBackground";
+import { useEffect } from "react";
 import HeroPortfolio from "@/components/HeroPortfolio";
-import ProjectsSection from "@/components/ProjectsSection";
-import SkillsSection from "@/components/SkillsSection";
-import ResumeSection from "@/components/ResumeSection";
-import EducationSection from "@/components/EducationSection";
+import AboutSection from "@/components/AboutSection";
+import WorkSection from "@/components/WorkSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import ToolboxSection from "@/components/ToolboxSection";
 import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
-  // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="min-h-screen relative overflow-x-hidden">
-      <SpaceBackground />
-      <div className="relative z-10">
-        <HeroPortfolio />
-        <ProjectsSection />
-        <SkillsSection />
-        <ResumeSection />
-        <EducationSection />
-        <ContactSection />
-      </div>
+    <div className="relative overflow-x-hidden">
+      <HeroPortfolio />
+      <AboutSection />
+      <WorkSection />
+      <ExperienceSection />
+      <ToolboxSection />
+      <ContactSection />
     </div>
   );
 };

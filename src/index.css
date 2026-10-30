@@ -4,41 +4,41 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
+    --background: 45 22% 94%;
+    --foreground: 0 0% 10%;
 
-    --card: 0 0% 4%;
-    --card-foreground: 0 0% 98%;
+    --card: 40 25% 91%;
+    --card-foreground: 25 15% 16%;
 
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 40 25% 91%;
+    --popover-foreground: 25 15% 16%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 227 69% 53%;
+    --primary-foreground: 40 30% 95%;
 
-    --secondary: 214 79% 27%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 40 20% 80%;
+    --secondary-foreground: 25 15% 16%;
 
-    --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 63.9%;
+    --muted: 40 18% 80%;
+    --muted-foreground: 20 10% 32%;
 
-    --accent: 217 78% 69%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 227 69% 53%;
+    --accent-foreground: 40 30% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 217 91% 60%;
+    --border: 25 15% 72%;
+    --input: 25 15% 72%;
+    --ring: 227 69% 53%;
 
     --radius: 0.75rem;
 
     /* Multi-blue theme colors */
-    --portfolio-navy: 214 79% 27%;     /* Navy Blue #1E3A8A */
-    --portfolio-indigo: 217 91% 60%;   /* Indigo #3B82F6 */
-    --portfolio-sky: 217 78% 69%;      /* Sky Blue #60A5FA */
-    --portfolio-light: 214 100% 87%;   /* Light Blue #BFDBFE */
+    --portfolio-navy: 105 12% 70%;     /* Sage surface */
+    --portfolio-indigo: 15 73% 44%;   /* Rust #C2461E */
+    --portfolio-sky: 15 75% 32%;      /* Deep red */
+    --portfolio-light: 25 15% 16%;   /* Ink */
     --footer-light: 199 89% 48%;       /* Light blue for footer #E0F2FE */
     --footer-text: 220 26% 14%;        /* Dark text #111827 */
     
@@ -53,12 +53,30 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-boldonse;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    @apply text-foreground antialiased font-sans;
+    background-color: #f4f2ec;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      rgba(110, 130, 170, 0.22) 31px,
+      rgba(110, 130, 170, 0.22) 32px
+    );
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Jersey 10", Impact, sans-serif;
+    font-weight: 400;
+    font-synthesis: none;
+  }
+
+  ::selection {
+    background: #f6c945;
+    color: #1a1a1a;
   }
 
   html {
-    @apply scroll-smooth font-boldonse;
+    @apply scroll-smooth font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-padding-top: 6rem;
@@ -94,7 +112,7 @@
   }
   
   .text-glow {
-    text-shadow: 0 0 15px hsl(var(--primary) / 0.6);
+    text-shadow: none;
   }
   
   .hero-gradient {
@@ -189,5 +207,25 @@
     background-size: 50px 50px;
     transform: perspective(1000px) rotateX(60deg) translateY(-100px);
     mask-image: linear-gradient(to bottom, transparent, black, transparent);
+  }
+}
+
+
+/* Hide scrollbars on horizontally scrolling strips (nav tabs) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
