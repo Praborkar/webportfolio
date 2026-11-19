@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Download, ArrowDown } from "lucide-react";
 import { Tape } from "@/components/scrap";
+import RonAvatar from "@/components/RonAvatar";
+import { openRon } from "@/lib/ron";
 import {
   Float,
   PhoneDoodle,
@@ -112,6 +114,25 @@ const HeroPortfolio = () => {
             >
               <Download className="w-3.5 h-3.5" /> Resume
             </a>
+          </div>
+
+          {/* Ad for the AI agent Ron */}
+          <div className="relative mt-10 mx-auto max-w-md flex items-center gap-4 text-left bg-[#f7e3a1] border-2 border-ink px-5 py-4 shadow-[4px_5px_0_rgba(0,0,0,0.18)] rotate-1">
+            <span className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-4 bg-[#c5d4f7] opacity-90 -rotate-2" />
+            <RonAvatar className="w-14 h-14 shrink-0" showStatus />
+            <div className="flex-1 min-w-0">
+              <p className="font-display text-2xl leading-none uppercase text-ink">Need help? Ask Ron</p>
+              <p className="font-hand text-lg leading-snug text-ink/80 mt-1">
+                Meet Ron, my AI agent. He can answer questions about my work, experience and how to reach me.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => openRon()}
+              className="shrink-0 px-4 py-2 bg-ink text-paper font-mono text-[11px] font-bold uppercase tracking-widest hover:bg-[#e5484d] transition-colors"
+            >
+              Chat
+            </button>
           </div>
         </motion.div>
 

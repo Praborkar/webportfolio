@@ -4,6 +4,10 @@ import { Github, Linkedin, Mail, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Polaroid, Tape } from "@/components/scrap";
 import { Float, PaperPlaneDoodle, PhoneDoodle, SparkleDoodle } from "@/components/doodles";
+import RonAvatar from "@/components/RonAvatar";
+import { openRon } from "@/lib/ron";
+
+const ronQuestions = ["What has Prabor built?", "Is he open to work?"];
 
 const workedWith = [
   { name: "Futurebits", tone: "mint" as const },
@@ -82,6 +86,36 @@ const ContactSection = () => {
           <p className="font-hand text-2xl text-ink/70 mt-3">
             Got a project, a role, or just want to say hi? I read every message.
           </p>
+        </div>
+
+        {/* Talk to Ron: the AI assistant on the site */}
+        <div className="mx-auto mb-16 max-w-xl flex flex-col sm:flex-row items-center gap-5 bg-[#bfe8d0] p-6 shadow-[3px_4px_0_rgba(0,0,0,0.18)] -rotate-1 text-left">
+          <RonAvatar className="w-20 h-20 shrink-0" showStatus />
+          <div className="flex-1">
+            <p className="font-display text-4xl leading-none uppercase text-ink">Rather ask than read?</p>
+            <p className="font-hand text-xl text-ink/80 mt-2">
+              Ron, Prabor's AI assistant, can answer questions about his work and experience any time.
+            </p>
+            <div className="flex flex-wrap gap-2 mt-4">
+              <button
+                type="button"
+                onClick={() => openRon()}
+                className="font-mono text-[11px] font-bold uppercase tracking-wider bg-ink text-paper px-3 py-2 hover:bg-[#e5484d] transition-colors"
+              >
+                Talk to Ron
+              </button>
+              {ronQuestions.map((q) => (
+                <button
+                  key={q}
+                  type="button"
+                  onClick={() => openRon(q)}
+                  className="font-mono text-[11px] uppercase tracking-wider border-2 border-ink px-3 py-2 bg-paper hover:bg-[#f472b6] transition-colors"
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Form on a sticky note, flanked by polaroids */}

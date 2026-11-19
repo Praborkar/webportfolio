@@ -91,6 +91,16 @@ src/
 - **Bio:** edit `src/components/AboutSection.tsx`.
 - **Resume:** replace `public/Prabor_Kar_Resume.pdf`.
 
+## Ron, the AI assistant
+
+A chat widget ("Ask Ron") on every page answers visitor questions about Prabor's work. The browser calls `/api/chat` (`api/chat.ts`), a Vercel serverless function that calls the Google Gemini API with the `gemini-3.1-flash-lite` model.
+
+- Set `GOOGLE_API_KEY` in the Vercel project settings. It is read on the server only.
+- Without the key, Ron shows a friendly "not set up yet" message and the rest of the site is unaffected.
+- `npm run dev` does not run `/api` functions. To test Ron locally, use `vercel dev` with the key in a `.env` file.
+- Ron's facts live in the `SYSTEM_PROMPT` in `api/chat.ts`. Update them when your experience or projects change.
+- The endpoint is rate-limited per IP (best effort). Also set a monthly spend limit in the Google Cloud console.
+
 ## Contact form
 
 The form has no mail backend. On submit it opens the visitor's email app with the message pre-filled (a `mailto:` link to prabork@gmail.com). To send messages directly, connect a service such as EmailJS, Formspree or Web3Forms in `src/components/ContactSection.tsx`.

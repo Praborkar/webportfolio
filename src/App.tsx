@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import TopNav from "./components/TopNav";
 import Footer from "./components/Footer";
+import RonChat from "./components/RonChat";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           </Routes>
         </main>
         <Footer />
+        <RonChat />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
